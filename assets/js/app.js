@@ -14,7 +14,6 @@ function agregarAmigo() {
   //Validacion de que el nombre no este vacio
   if (!nombre) {
     console.error('Intento de agregar un nombre vacio');
-    
     alert("El nombre no puede estar vacio");
     return;
   }
@@ -39,6 +38,7 @@ function sortearAmigo() {
   if (amigos.length === 0) {
     console.warn('Intento de hacer sorteo sin amigos');
     alert('Agrega amigos primero al sorteo');
+    document.getElementById('resultado').innerHTML = '';
     return;
   }
 
@@ -50,4 +50,11 @@ function sortearAmigo() {
   //Mostrar el resultado en pantalla
   const resultado = document.getElementById('resultado');
   resultado.innerHTML = `🎉 ¡El amigo secreto es: <strong>${ganador}</strong>!`;
+
+  //Limpiar los datos para nuevo sorteo
+  amigos = [];
+  document.getElementById('listaAmigos').innerHTML = '';
+  //document.getElementById('resultado').innerHTML = '';
+  console.clear();
+  console.log('Lista reiniciada para nuevo sorteo');
 }
