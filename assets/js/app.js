@@ -30,3 +30,24 @@ function agregarAmigo() {
   //Se limpia la caja de texto (input)
   input.value = "";
 }
+
+//Funcion para sortear al amigo ganador
+function sortearAmigo() {
+  console.log('Se inicia el sorteo con: ', amigos);
+
+  //Validacion
+  if (amigos.length === 0) {
+    console.warn('Intento de hacer sorteo sin amigos');
+    alert('Agrega amigos primero al sorteo');
+    return;
+  }
+
+  //Sorteo Aleatorio.
+  const indice = Math.floor(Math.random() * amigos.length);
+  const ganador = amigos[indice];
+  console.log('El ganador es: ', ganador);
+
+  //Mostrar el resultado en pantalla
+  const resultado = document.getElementById('resultado');
+  resultado.innerHTML = `🎉 ¡El amigo secreto es: <strong>${ganador}</strong>!`;
+}
